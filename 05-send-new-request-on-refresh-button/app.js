@@ -1,6 +1,14 @@
-const requestStream = Rx.Observable.of('https://api.github.com/users');
+const refreshBtnDOM = document.querySelector('.refresh');
+const refreshClickStream = Rx.Observable.fromEvent(refreshBtnDOM, 'click');
 
-const responseStream = requestStream
+const requestOnRefreshStream = refreshClickStream.map(ev => {
+  return 'https://api.github.com/users';
+});
+
+const startupRequestStream = Rx.Observable.of('https://api.github.com/users');
+
+const responseStream = startupRequestStream
+  .merge(requestOnRefreshStream)
   .flatMap(url => Rx.Observable.fromPromise(fetch(url)))
   .flatMap(res => Rx.Observable.fromPromise(res.json()));
 
