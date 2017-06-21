@@ -1,0 +1,39 @@
+body {
+  font-family: sans-serif;
+  padding: 10px;
+}
+h3 {
+  font-weight: bold;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+.refresh {
+  font-size: 80%;
+  margin-left: 10px;
+}
+.header {
+  background: #ECECEC;
+  padding: 5px;
+}
+.suggestions {
+  border: 2px solid #ECECEC;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+li img {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin-right: 1rem;
+}
+
+.close {
+  margin-left: auto;
+}
